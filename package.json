@@ -1,0 +1,21 @@
+{
+  "name": "planpath",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev": "pnpm --parallel --filter server --filter client dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:e2e": "playwright test",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "playwright": "^1.42.0"
+  },
+  "packageManager": "pnpm@12.8.1"
+}
