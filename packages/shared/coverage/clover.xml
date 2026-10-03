@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1790981421616" clover="3.2.0">
-  <project timestamp="1790981421616" name="All files">
+<coverage generated="1790983222925" clover="3.2.0">
+  <project timestamp="1790983222925" name="All files">
     <metrics statements="303" coveredstatements="296" conditionals="54" coveredconditionals="45" methods="6" coveredmethods="5" elements="363" coveredelements="346" complexity="0" loc="303" ncloc="303" packages="1" files="4" classes="4"/>
     <file name="diff.ts" path="/Users/abhiramkasireddi/PlanPath/packages/shared/src/diff.ts">
       <metrics statements="52" coveredstatements="52" conditionals="7" coveredconditionals="5" methods="1" coveredmethods="1"/>
