@@ -30,10 +30,23 @@ test.describe('PlanPath E2E Tests', () => {
     await page.waitForTimeout(500);
 
     // Change contribution rate
-    const contribInput = page.locator('input[type="number"]').nth(4);
+    // Contribution rate is a range slider, not a number input
+    const contribInput = page.locator('label:has-text("Contribution Rate") + input');
     await contribInput.fill('25');
     await page.click('text=Save New Version');
     await page.waitForTimeout(500);
+
+    // Diff the two versions this test just saved (the page may open a scenario
+    // that already has versions, so they are the latest two, not v1/v2)
+    const compareRow = page.locator('text=Compare:').locator('..');
+    const versionValues = await compareRow
+      .locator('select')
+      .first()
+      .locator('option')
+      .evaluateAll((options) => options.map((o) => (o as HTMLOptionElement).value));
+    const [prevVersion, lastVersion] = versionValues.slice(-2);
+    await compareRow.locator('select').nth(0).selectOption(prevVersion!);
+    await compareRow.locator('select').nth(1).selectOption(lastVersion!);
 
     await expect(page.locator('text=Scenario Comparison')).toBeVisible();
     await expect(page.locator('text=contributionRatePct')).toBeVisible();
