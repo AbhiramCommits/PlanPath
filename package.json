@@ -20,6 +20,7 @@
     "@fastify/rate-limit": "^9.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
     "playwright": "^1.63.0"
   },
   "packageManager": "pnpm@12.8.1"
