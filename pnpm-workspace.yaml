@@ -2,3 +2,8 @@ packages:
   - packages/shared
   - packages/server
   - packages/client
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true

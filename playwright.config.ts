@@ -9,7 +9,12 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'export DATABASE_URL="postgresql://' + process.env.USER + '@localhost:5432/planpath_dev?schema=public" && pnpm --filter server db:push && pnpm --filter server seed && pnpm --filter server dev',
+      command: 'pnpm --filter server db:push && pnpm --filter server seed && pnpm --filter server dev',
+      env: {
+        DATABASE_URL:
+          process.env.DATABASE_URL ??
+          `postgresql://${process.env.USER}@localhost:5432/planpath_dev?schema=public`,
+      },
       port: 3000,
       reuseExistingServer: !process.env.CI,
     },

@@ -55,6 +55,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --shamefully-hoist --unsafe-perm
 
+      - name: Generate Prisma client
+        run: pnpm --filter server exec prisma generate
+
       - name: Typecheck
         run: pnpm typecheck
 
